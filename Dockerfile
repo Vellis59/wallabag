@@ -7,7 +7,9 @@ ENV SYMFONY_ENV=prod \
     SYMFONY__ENV__DATABASE_NAME=wallabag \
     SYMFONY__ENV__DATABASE_USER=root \
     SYMFONY__ENV__DATABASE_PASSWORD=root \
-    SYMFONY_FORCE_INSTALL=1 \
-    PORT=80
+    SYMFONY_FORCE_INSTALL=1
 
 EXPOSE 80
+USER root
+RUN chown -R www-data:www-data /var/www/wallabag
+USER www-data
