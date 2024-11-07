@@ -10,6 +10,8 @@ ENV SYMFONY_ENV=prod \
     SYMFONY_FORCE_INSTALL=1
 
 EXPOSE 80
+
 USER root
+RUN addgroup --system www-data && adduser --system --group www-data
 RUN chown -R www-data:www-data /var/www/wallabag
 USER www-data
