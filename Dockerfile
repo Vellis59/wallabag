@@ -11,7 +11,5 @@ ENV SYMFONY_ENV=prod \
 
 EXPOSE 80
 
-USER root
-RUN addgroup --system www-data && adduser --system --group www-data
-RUN chown -R www-data:www-data /var/www/wallabag
-USER www-data
+RUN mkdir -p /var/www/wallabag/var && \
+    chmod -R 777 /var/www/wallabag/var
